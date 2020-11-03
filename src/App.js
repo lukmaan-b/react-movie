@@ -3,6 +3,7 @@ import useFetch from './useFetch';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import SingleMovie from './components/SingleMovie';
 import MovieList from './components/MovieList';
+import { AnimatePresence } from 'framer-motion';
 import './App.css';
 function App() {
   const moveList = useFetch(
@@ -12,15 +13,14 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          <main>
-            <h1>Movies</h1>
-            <section className="grid">
-              <MovieList movies={moveList} />
-            </section>
-          </main>
+          <AnimatePresence exitBeforeEnter>
+            <MovieList movies={moveList} />
+          </AnimatePresence>
         </Route>
         <Route path="/movies/:id">
-          <SingleMovie movies={moveList} />
+          <AnimatePresence exitBeforeEnter>
+            <SingleMovie movies={moveList} />
+          </AnimatePresence>
         </Route>
       </Switch>
     </Router>

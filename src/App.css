@@ -23,7 +23,7 @@ body {
 main h1 {
   text-align: center;
   font-size: clamp(3rem, 5vw, 10rem);
-  padding: 10rem 2rem 10rem 2rem;
+  padding: 2rem 2rem;
 }
 
 section {
@@ -74,7 +74,9 @@ section {
 }
 
 .movie__description p {
+  font-size: 2rem;
   order: 2;
+  line-height: 50px;
 }
 
 .movie__poster {
