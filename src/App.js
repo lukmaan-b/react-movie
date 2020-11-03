@@ -1,6 +1,6 @@
 import { Config } from './api';
 import useFetch from './useFetch';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import SingleMovie from './components/SingleMovie';
 import MovieList from './components/MovieList';
 import { AnimatePresence } from 'framer-motion';
@@ -10,7 +10,7 @@ function App() {
     `https://api.themoviedb.org/3/movie/popular?api_key=${Config.API_KEY}`
   );
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route exact path="/">
           <AnimatePresence exitBeforeEnter>
